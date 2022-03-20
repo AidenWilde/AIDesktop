@@ -27,7 +27,7 @@ namespace AIDesktop
                 return;
             }
 
-            _aiDesktopService.CaptureScreen(_selectedDisplay, @$"C:\Users\Aiden\Desktop\AIDesktop Screenshots\Capture{Guid.NewGuid()}.jpg"); // change directory to selectable path eventually
+            _aiDesktopService.CaptureScreen(_selectedDisplay); // change directory to selectable path eventually
         }
 
         private void buttonLookup_Click(object sender, EventArgs e)

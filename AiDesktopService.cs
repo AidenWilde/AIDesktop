@@ -4,11 +4,15 @@ namespace AIDesktop
 {
     public interface IAiDesktopService
     {
-        public void CaptureScreen(Screen screenToCapture, string pathToSaveCapturesTo);
+        public void CaptureScreen(Screen screenToCapture);
     }
 
     public class AiDesktopService : IAiDesktopService
     {
+        public delegate void SaveBitmapDelegate(Bitmap bitmap);
+
+        private string _pathToSaveCapturesTo = @$"C:\Users\Aiden\Desktop\AIDesktop Screenshots\";
+        private Bitmap _screenCapture;
         private Form _parentForm;
 
         private SelectableAreaForm _selectableAreaForm;
@@ -18,28 +22,26 @@ namespace AIDesktop
             _parentForm = form;
         }
 
-        public void CaptureScreen(Screen screenToCapture, string pathToSaveCapturesTo)
+        public void CaptureScreen(Screen screenToCapture)
         {
             int bufferTimeForFormToHide = 250;
             _parentForm.Hide();
             Thread.Sleep(bufferTimeForFormToHide);
 
-            var screenCapture = new Bitmap(screenToCapture.WorkingArea.Width, screenToCapture.WorkingArea.Height, PixelFormat.Format32bppArgb);
+            _screenCapture = new Bitmap(screenToCapture.WorkingArea.Width, screenToCapture.WorkingArea.Height, PixelFormat.Format32bppArgb);
 
-            var captureGraphics = Graphics.FromImage(screenCapture);
+            var captureGraphics = Graphics.FromImage(_screenCapture);
             captureGraphics.CopyFromScreen(screenToCapture.WorkingArea.Left, screenToCapture.WorkingArea.Top, 0, 0, screenToCapture.WorkingArea.Size);
 
-            //captureBitmap.Save(pathToSaveCapturesTo, ImageFormat.Jpeg);
-
-            // create new form, make it transparent with a border, with a button that says 'capture')
-            // -- this can be edited later, but works for now
-
-            
-            _selectableAreaForm = new SelectableAreaForm(screenCapture);
+            _selectableAreaForm = new SelectableAreaForm(_screenCapture, CallBackSaveImage);
             _selectableAreaForm.Show();
 
-
             _parentForm.Show();
+        }
+
+        public void CallBackSaveImage(Bitmap bitmap)
+        {
+            bitmap.Save(_pathToSaveCapturesTo + $"Capture{Guid.NewGuid()}.jpg", ImageFormat.Jpeg);
         }
 
         private Bitmap ResizeBitmap(Bitmap image)

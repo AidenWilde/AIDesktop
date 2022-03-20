@@ -1,4 +1,6 @@
-﻿namespace AIDesktop
+﻿using static AIDesktop.AiDesktopService;
+
+namespace AIDesktop
 {
     public partial class SelectableAreaForm : Form
     {
@@ -6,17 +8,18 @@
 
         int _startX = 0;
         int _startY = 0;
-        int _lastX = 0;
-        int _lastY = 0;
         int _width = 0;
         int _height = 0;
 
         bool _isMovingMouse;
 
-        public SelectableAreaForm(Bitmap image)
+        private SaveBitmapDelegate _callBackSaveImage;
+
+        public SelectableAreaForm(Bitmap image, SaveBitmapDelegate callBackSaveImage)
         {
             InitializeComponent();
             _image = image;
+            _callBackSaveImage = callBackSaveImage;
         }
 
         private void SelectableAreaForm_Load(object sender, EventArgs e)
@@ -40,8 +43,6 @@
                 _width = e.X - _startX;
                 _height = e.Y - _startY;
 
-                _lastX = e.X;
-                _lastY = e.Y;
                 using (var graphics = pictureBoxScreenshot.CreateGraphics())
                 {
                     pictureBoxScreenshot.Invalidate();
@@ -75,8 +76,19 @@
                 }
             }
 
-            _lastX = 0;
-            _lastY = 0;
+            var endX = _startX + Width;
+            var endY = _startY + Height;
+
+            // get bitmap of x1, x2, y1, y2 to call callback func with
+
+            var captureGraphics = Graphics.FromImage(_image);
+            captureGraphics.CopyFromScreen(_startX, _startY, endX, endY, new Size((int)captureGraphics.ClipBounds.Width, (int)captureGraphics.ClipBounds.Height));
+
+            _callBackSaveImage.Invoke(_image);
+
+            // reset the rectangle drawing positions
+            _startX = 0;
+            _startY = 0;
             _width = 0;
             _height = 0;
         }
