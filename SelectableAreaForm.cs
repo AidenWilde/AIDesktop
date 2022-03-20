@@ -78,6 +78,7 @@ namespace AIDesktop
         {
             _isMovingMouse = false;
 
+            // All of the rectangles drawn while selecting the area are removed, so one has to be redrawn when the region selection ends
             using (var graphics = pictureBoxScreenshot.CreateGraphics())
             {
                 var selectedRectangle = new Rectangle(_startX, _startY, _width, _height);
