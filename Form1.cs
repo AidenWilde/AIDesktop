@@ -30,6 +30,7 @@ namespace AIDesktop
             }
 
             _aiDesktopService.CaptureScreen(_selectedDisplay); // change directory to selectable path eventually
+            _aiDesktopService.CreateNewSelectableArea();
         }
 
         public void DisplayImage(Bitmap bitmap)
@@ -39,7 +40,7 @@ namespace AIDesktop
 
         private void buttonLookup_Click(object sender, EventArgs e)
         {
-
+            // TODO - call off to an AI to identify text within the image provided
         }
 
         private void listBoxDisplays_SelectedIndexChanged(object sender, EventArgs e)

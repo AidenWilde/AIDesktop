@@ -4,6 +4,7 @@ namespace AIDesktop
 {
     public interface IAiDesktopService
     {
+        public SelectableAreaForm CreateNewSelectableArea();
         public void CaptureScreen(Screen screenToCapture);
         public bool SaveImage();
     }
@@ -18,8 +19,6 @@ namespace AIDesktop
 
         private Bitmap _screenCaptureSelectedArea;
 
-        private SelectableAreaForm _selectableAreaForm;
-
         public AiDesktopService(FormAIDesktop form)
         {
             _parentForm = form;
@@ -29,18 +28,25 @@ namespace AIDesktop
         {
             int bufferTimeForFormToHide = 250;
             _parentForm.Hide();
+
             Thread.Sleep(bufferTimeForFormToHide);
 
             _screenCapture = new Bitmap(screenToCapture.WorkingArea.Width, screenToCapture.WorkingArea.Height, PixelFormat.Format32bppArgb);
 
             var captureGraphics = Graphics.FromImage(_screenCapture);
             captureGraphics.CopyFromScreen(screenToCapture.WorkingArea.Left, screenToCapture.WorkingArea.Top, 0, 0, screenToCapture.WorkingArea.Size);
-
-            _selectableAreaForm = new SelectableAreaForm(_parentForm, _screenCapture, CallBackFunctionDisplayImage);
-            _selectableAreaForm.Show();
         }
 
-        public void CallBackFunctionDisplayImage(Bitmap bitmap)
+        public SelectableAreaForm CreateNewSelectableArea()
+        {
+            var selectableAreaForm = new SelectableAreaForm(_parentForm, _screenCapture, CallBackFunctionDisplayImage);
+            selectableAreaForm.StartPosition = FormStartPosition.Manual;
+            selectableAreaForm.Location = new Point(0, 0);
+            selectableAreaForm.Show();
+            return selectableAreaForm;
+        }
+
+        private void CallBackFunctionDisplayImage(Bitmap bitmap)
         {
             _screenCaptureSelectedArea = bitmap;
             _parentForm.DisplayImage(_screenCaptureSelectedArea);

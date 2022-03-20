@@ -23,6 +23,15 @@ namespace AIDesktop
             _parentForm = parentForm; 
             _image = image;
             _callBackSaveImage = callBackSaveImage;
+
+            this.FormClosing += new FormClosingEventHandler(SelectableAreaForm_OnClose);
+        }
+
+        private void SelectableAreaForm_OnClose(object? sender, FormClosingEventArgs e)
+        {
+            // the parent form is hidden when this form loads, so want to show it again before we dispose of this form so that the user has something to interact with
+            _parentForm.Show();
+            this.Dispose();
         }
 
         private void SelectableAreaForm_Load(object sender, EventArgs e)
@@ -82,8 +91,7 @@ namespace AIDesktop
             var areaSection = _image.Clone(selectedArea, _image.PixelFormat);
 
             _callBackSaveImage.Invoke(areaSection);
-            _parentForm.Show();
-            this.Dispose();
+            this.Close();
         }
     }
 }

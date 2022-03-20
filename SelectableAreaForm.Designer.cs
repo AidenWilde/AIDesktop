@@ -34,9 +34,9 @@
             // 
             // pictureBoxScreenshot
             // 
-            this.pictureBoxScreenshot.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxScreenshot.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxScreenshot.Name = "pictureBoxScreenshot";
-            this.pictureBoxScreenshot.Size = new System.Drawing.Size(776, 426);
+            this.pictureBoxScreenshot.Size = new System.Drawing.Size(1213, 630);
             this.pictureBoxScreenshot.TabIndex = 0;
             this.pictureBoxScreenshot.TabStop = false;
             // 
@@ -44,7 +44,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1218, 636);
             this.Controls.Add(this.pictureBoxScreenshot);
             this.Name = "SelectableAreaForm";
             this.Text = "SelectableAreaForm";
