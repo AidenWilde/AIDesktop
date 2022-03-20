@@ -38,11 +38,6 @@ namespace AIDesktop
             pictureBoxScreenshotSection.Image = bitmap;
         }
 
-        private void buttonLookup_Click(object sender, EventArgs e)
-        {
-            // TODO - call off to an AI to identify text within the image provided
-        }
-
         private void listBoxDisplays_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxDisplays.SelectedIndex == -1 || listBoxDisplays.SelectedIndex == null)
@@ -63,6 +58,11 @@ namespace AIDesktop
                 MessageBox.Show("Please select an area to save first using Select Region");
             else 
                 MessageBox.Show("Successfully saved image");
+        }
+
+        private void buttonShowAiFunctions_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

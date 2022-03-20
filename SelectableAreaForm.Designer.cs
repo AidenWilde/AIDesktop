@@ -47,7 +47,9 @@
             this.ClientSize = new System.Drawing.Size(1218, 636);
             this.Controls.Add(this.pictureBoxScreenshot);
             this.Name = "SelectableAreaForm";
+            this.ShowIcon = false;
             this.Text = "SelectableAreaForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.SelectableAreaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScreenshot)).EndInit();
             this.ResumeLayout(false);

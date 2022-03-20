@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.buttonSelectRegion = new System.Windows.Forms.Button();
-            this.buttonLookup = new System.Windows.Forms.Button();
             this.listBoxDisplays = new System.Windows.Forms.ListBox();
             this.pictureBoxScreenshotSection = new System.Windows.Forms.PictureBox();
             this.buttonSaveImage = new System.Windows.Forms.Button();
-            this.buttonShowIdentifiedText = new System.Windows.Forms.Button();
+            this.buttonShowAiFunctions = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxScreenshotSection)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,16 +45,6 @@
             this.buttonSelectRegion.Text = "Select Region";
             this.buttonSelectRegion.UseVisualStyleBackColor = true;
             this.buttonSelectRegion.Click += new System.EventHandler(this.buttonSelectRegion_Click);
-            // 
-            // buttonLookup
-            // 
-            this.buttonLookup.Location = new System.Drawing.Point(113, 8);
-            this.buttonLookup.Name = "buttonLookup";
-            this.buttonLookup.Size = new System.Drawing.Size(95, 30);
-            this.buttonLookup.TabIndex = 1;
-            this.buttonLookup.Text = "Lookup";
-            this.buttonLookup.UseVisualStyleBackColor = true;
-            this.buttonLookup.Click += new System.EventHandler(this.buttonLookup_Click);
             // 
             // listBoxDisplays
             // 
@@ -85,25 +74,25 @@
             this.buttonSaveImage.UseVisualStyleBackColor = true;
             this.buttonSaveImage.Click += new System.EventHandler(this.buttonSaveImage_Click);
             // 
-            // buttonShowIdentifiedText
+            // buttonShowAiFunctions
             // 
-            this.buttonShowIdentifiedText.Location = new System.Drawing.Point(113, 44);
-            this.buttonShowIdentifiedText.Name = "buttonShowIdentifiedText";
-            this.buttonShowIdentifiedText.Size = new System.Drawing.Size(95, 30);
-            this.buttonShowIdentifiedText.TabIndex = 5;
-            this.buttonShowIdentifiedText.Text = "Show Text";
-            this.buttonShowIdentifiedText.UseVisualStyleBackColor = true;
+            this.buttonShowAiFunctions.Location = new System.Drawing.Point(113, 25);
+            this.buttonShowAiFunctions.Name = "buttonShowAiFunctions";
+            this.buttonShowAiFunctions.Size = new System.Drawing.Size(95, 30);
+            this.buttonShowAiFunctions.TabIndex = 5;
+            this.buttonShowAiFunctions.Text = "AI Functions";
+            this.buttonShowAiFunctions.UseVisualStyleBackColor = true;
+            this.buttonShowAiFunctions.Click += new System.EventHandler(this.buttonShowAiFunctions_Click);
             // 
             // FormAIDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 379);
-            this.Controls.Add(this.buttonShowIdentifiedText);
+            this.Controls.Add(this.buttonShowAiFunctions);
             this.Controls.Add(this.buttonSaveImage);
             this.Controls.Add(this.pictureBoxScreenshotSection);
             this.Controls.Add(this.listBoxDisplays);
-            this.Controls.Add(this.buttonLookup);
             this.Controls.Add(this.buttonSelectRegion);
             this.Name = "FormAIDesktop";
             this.Text = "AI Desktop";
@@ -116,10 +105,9 @@
         #endregion
 
         private Button buttonSelectRegion;
-        private Button buttonLookup;
         private ListBox listBoxDisplays;
         private PictureBox pictureBoxScreenshotSection;
         private Button buttonSaveImage;
-        private Button buttonShowIdentifiedText;
+        private Button buttonShowAiFunctions;
     }
 }
