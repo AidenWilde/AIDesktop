@@ -17,6 +17,8 @@ namespace AIDesktop
             {
                 listBoxDisplays.Items.Add($"{screen.DeviceName}");// || {screen.Bounds.Width} {screen.Bounds.Height}");
             }
+
+            pictureBoxScreenshotSection.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void buttonSelectRegion_Click(object sender, EventArgs e)
@@ -28,6 +30,11 @@ namespace AIDesktop
             }
 
             _aiDesktopService.CaptureScreen(_selectedDisplay); // change directory to selectable path eventually
+        }
+
+        public void DisplayImage(Bitmap bitmap)
+        {
+            pictureBoxScreenshotSection.Image = bitmap;
         }
 
         private void buttonLookup_Click(object sender, EventArgs e)

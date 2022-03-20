@@ -45,10 +45,10 @@ namespace AIDesktop
 
                 using (var graphics = pictureBoxScreenshot.CreateGraphics())
                 {
-                    pictureBoxScreenshot.Invalidate();
                     var selectedRectangle = new Rectangle(_startX, _startY, _width, _height);
                     using (var pen = new Pen(Color.Red, 1))
                     {
+                        pictureBoxScreenshot.Invalidate();
                         graphics.DrawRectangle(pen, selectedRectangle);
                     }
                 }
@@ -76,21 +76,11 @@ namespace AIDesktop
                 }
             }
 
-            var endX = _startX + Width;
-            var endY = _startY + Height;
+            Rectangle selectedArea = new Rectangle(_startX, _startY, _width, _height);
+            var areaSection = _image.Clone(selectedArea, _image.PixelFormat);
 
-            // get bitmap of x1, x2, y1, y2 to call callback func with
-
-            var captureGraphics = Graphics.FromImage(_image);
-            captureGraphics.CopyFromScreen(_startX, _startY, endX, endY, new Size((int)captureGraphics.ClipBounds.Width, (int)captureGraphics.ClipBounds.Height));
-
-            _callBackSaveImage.Invoke(_image);
-
-            // reset the rectangle drawing positions
-            _startX = 0;
-            _startY = 0;
-            _width = 0;
-            _height = 0;
+            _callBackSaveImage.Invoke(areaSection);
+            this.Dispose();
         }
     }
 }

@@ -13,11 +13,11 @@ namespace AIDesktop
 
         private string _pathToSaveCapturesTo = @$"C:\Users\Aiden\Desktop\AIDesktop Screenshots\";
         private Bitmap _screenCapture;
-        private Form _parentForm;
+        private FormAIDesktop _parentForm;
 
         private SelectableAreaForm _selectableAreaForm;
 
-        public AiDesktopService(Form form)
+        public AiDesktopService(FormAIDesktop form)
         {
             _parentForm = form;
         }
@@ -33,15 +33,15 @@ namespace AIDesktop
             var captureGraphics = Graphics.FromImage(_screenCapture);
             captureGraphics.CopyFromScreen(screenToCapture.WorkingArea.Left, screenToCapture.WorkingArea.Top, 0, 0, screenToCapture.WorkingArea.Size);
 
-            _selectableAreaForm = new SelectableAreaForm(_screenCapture, CallBackSaveImage);
+            _selectableAreaForm = new SelectableAreaForm(_screenCapture, CallBackFunctionDisplayImage);
             _selectableAreaForm.Show();
 
             _parentForm.Show();
         }
 
-        public void CallBackSaveImage(Bitmap bitmap)
+        public void CallBackFunctionDisplayImage(Bitmap bitmap)
         {
-            bitmap.Save(_pathToSaveCapturesTo + $"Capture{Guid.NewGuid()}.jpg", ImageFormat.Jpeg);
+            _parentForm.DisplayImage(bitmap);
         }
 
         private Bitmap ResizeBitmap(Bitmap image)
