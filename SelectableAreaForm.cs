@@ -23,15 +23,6 @@ namespace AIDesktop
             _parentForm = parentForm; 
             _image = image;
             _callBackSaveImage = callBackSaveImage;
-
-            this.FormClosing += new FormClosingEventHandler(SelectableAreaForm_OnClose);
-        }
-
-        private void SelectableAreaForm_OnClose(object? sender, FormClosingEventArgs e)
-        {
-            // the parent form is hidden when this form loads, so want to show it again before we dispose of this form so that the user has something to interact with
-            _parentForm.Show();
-            this.Dispose();
         }
 
         private void SelectableAreaForm_Load(object sender, EventArgs e)
@@ -45,6 +36,15 @@ namespace AIDesktop
             pictureBoxScreenshot.MouseDown += new MouseEventHandler(SelectableAreaForm_MouseDown);
             pictureBoxScreenshot.MouseUp += new MouseEventHandler(SelectableAreaForm_MouseUp);
             pictureBoxScreenshot.MouseMove += new MouseEventHandler(SelectableAreaForm_MouseMove);
+
+            this.FormClosing += new FormClosingEventHandler(SelectableAreaForm_OnClose);
+        }
+
+        private void SelectableAreaForm_OnClose(object? sender, FormClosingEventArgs e)
+        {
+            // the parent form is hidden when this form loads, so want to show it again before we dispose of this form so that the user has something to interact with
+            _parentForm.Show();
+            this.Dispose();
         }
 
         private void SelectableAreaForm_MouseMove(object? sender, MouseEventArgs e)
