@@ -30,6 +30,7 @@
         {
             this.buttonSelectRegion = new System.Windows.Forms.Button();
             this.buttonLookup = new System.Windows.Forms.Button();
+            this.listBoxDisplays = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // buttonSelectRegion
@@ -52,11 +53,22 @@
             this.buttonLookup.UseVisualStyleBackColor = true;
             this.buttonLookup.Click += new System.EventHandler(this.buttonLookup_Click);
             // 
+            // listBoxDisplays
+            // 
+            this.listBoxDisplays.FormattingEnabled = true;
+            this.listBoxDisplays.ItemHeight = 15;
+            this.listBoxDisplays.Location = new System.Drawing.Point(214, 8);
+            this.listBoxDisplays.Name = "listBoxDisplays";
+            this.listBoxDisplays.Size = new System.Drawing.Size(265, 64);
+            this.listBoxDisplays.TabIndex = 2;
+            this.listBoxDisplays.SelectedIndexChanged += new System.EventHandler(this.listBoxDisplays_SelectedIndexChanged);
+            // 
             // FormAIDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBoxDisplays);
             this.Controls.Add(this.buttonLookup);
             this.Controls.Add(this.buttonSelectRegion);
             this.Name = "FormAIDesktop";
@@ -70,5 +82,6 @@
 
         private Button buttonSelectRegion;
         private Button buttonLookup;
+        private ListBox listBoxDisplays;
     }
 }
