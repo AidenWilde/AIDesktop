@@ -8,7 +8,7 @@ namespace AIDesktop
         public FormAIDesktop()
         {
             InitializeComponent();
-            _aiDesktopService = new AiDesktopService();
+            _aiDesktopService = new AiDesktopService(this);
         }
 
         private void FormAIDesktop_Load(object sender, EventArgs e)
