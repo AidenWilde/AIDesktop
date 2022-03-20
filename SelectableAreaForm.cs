@@ -4,20 +4,23 @@ namespace AIDesktop
 {
     public partial class SelectableAreaForm : Form
     {
-        Bitmap _image;
+        private Bitmap _image;
+        
+        private int _startX = 0;
+        private int _startY = 0;
+        private int _width = 0;
+        private int _height = 0;
 
-        int _startX = 0;
-        int _startY = 0;
-        int _width = 0;
-        int _height = 0;
-
-        bool _isMovingMouse;
+        private bool _isMovingMouse;
 
         private SaveBitmapDelegate _callBackSaveImage;
 
-        public SelectableAreaForm(Bitmap image, SaveBitmapDelegate callBackSaveImage)
+        private FormAIDesktop _parentForm;
+
+        public SelectableAreaForm(FormAIDesktop parentForm, Bitmap image, SaveBitmapDelegate callBackSaveImage)
         {
             InitializeComponent();
+            _parentForm = parentForm; 
             _image = image;
             _callBackSaveImage = callBackSaveImage;
         }
@@ -30,7 +33,6 @@ namespace AIDesktop
             pictureBoxScreenshot.Height = _image.Height;
             pictureBoxScreenshot.Image = _image;
 
-            // add event handlers
             pictureBoxScreenshot.MouseDown += new MouseEventHandler(SelectableAreaForm_MouseDown);
             pictureBoxScreenshot.MouseUp += new MouseEventHandler(SelectableAreaForm_MouseUp);
             pictureBoxScreenshot.MouseMove += new MouseEventHandler(SelectableAreaForm_MouseMove);
@@ -80,6 +82,7 @@ namespace AIDesktop
             var areaSection = _image.Clone(selectedArea, _image.PixelFormat);
 
             _callBackSaveImage.Invoke(areaSection);
+            _parentForm.Show();
             this.Dispose();
         }
     }

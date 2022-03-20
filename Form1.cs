@@ -25,7 +25,7 @@ namespace AIDesktop
         {
             if (_selectedDisplay == null)
             {
-                MessageBox.Show("Please select a display first.");
+                MessageBox.Show("Please select a display first");
                 return;
             }
 
@@ -54,6 +54,14 @@ namespace AIDesktop
         private Screen FindDisplayByName(string displayName)
         {
             return Screen.AllScreens.First(x => x.DeviceName == displayName);
+        }
+
+        private void buttonSaveImage_Click(object sender, EventArgs e)
+        {
+            if (_aiDesktopService.SaveImage() is false)
+                MessageBox.Show("Please select an area to save first using Select Region");
+            else 
+                MessageBox.Show("Successfully saved image");
         }
     }
 }
