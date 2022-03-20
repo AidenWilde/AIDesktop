@@ -1,0 +1,17 @@
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\bin\Debug\net6.0-windows\AIDesktop.exe
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\bin\Debug\net6.0-windows\AIDesktop.deps.json
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\bin\Debug\net6.0-windows\AIDesktop.runtimeconfig.json
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\bin\Debug\net6.0-windows\AIDesktop.dll
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\bin\Debug\net6.0-windows\ref\AIDesktop.dll
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\bin\Debug\net6.0-windows\AIDesktop.pdb
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.csproj.AssemblyReference.cache
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.FormAIDesktop.resources
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.csproj.GenerateResource.cache
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.AssemblyInfoInputs.cache
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.AssemblyInfo.cs
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.csproj.CoreCompileInputs.cache
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.dll
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\ref\AIDesktop.dll
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.pdb
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.genruntimeconfig.cache
