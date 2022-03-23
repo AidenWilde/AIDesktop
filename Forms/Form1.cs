@@ -1,3 +1,5 @@
+using AIDesktop.Forms;
+
 namespace AIDesktop
 {
     public partial class FormAIDesktop : Form
@@ -62,7 +64,8 @@ namespace AIDesktop
 
         private void buttonShowAiFunctions_Click(object sender, EventArgs e)
         {
-
+            var aiFunctionsForm = new AiFunctionsForm(this, _aiDesktopService);
+            aiFunctionsForm.Show();
         }
     }
 }

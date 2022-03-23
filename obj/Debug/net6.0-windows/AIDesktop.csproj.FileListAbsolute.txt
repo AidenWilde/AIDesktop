@@ -16,3 +16,6 @@ C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\
 C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.pdb
 C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.genruntimeconfig.cache
 C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.SelectableAreaForm.resources
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.csproj.CopyComplete
+C:\Users\Aiden\Desktop\Development\AIDesktop\AIDesktop\obj\Debug\net6.0-windows\AIDesktop.Forms.AiFunctionsForm.resources

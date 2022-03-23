@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wvBXY8ccPvABpXj3gHZAZoR40HjzWixNIU6YyNVHP6oj/+cbUJh00s9Nx9wCKlagRUKL1+3qmpvR2y8vuFIlRQ==",
+  "dgSpecHash": "onvZ0d7uSDLpcQxW8nn5sCvqOWvvmYP4TPonKzB9Gej5PoBvs5i0Jt/F8XLrNxy8FsSMwXshIQ94fFCPmo/qyA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Aiden\\Desktop\\Development\\AIDesktop\\AIDesktop\\AIDesktop.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Aiden\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
