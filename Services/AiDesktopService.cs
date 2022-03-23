@@ -1,6 +1,6 @@
 ﻿using System.Drawing.Imaging;
 
-namespace AIDesktop
+namespace AIDesktop.Services
 {
     public interface IAiDesktopService
     {
