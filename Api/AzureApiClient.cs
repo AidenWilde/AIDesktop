@@ -1,7 +1,5 @@
 ﻿using AIDesktop.Data;
-using Newtonsoft.Json;
 using System.Net.Http.Headers;
-using System.Text;
 
 namespace AIDesktop.Web
 {
@@ -10,6 +8,7 @@ namespace AIDesktop.Web
         public string StartCognitiveServiceReadTextProcess(CognitiveServicesStartReadResultRequest request);
     }
 
+    // I could setup a http request pipeline a layer above in the service to handle the sequential calls to retrieve the result I actually care about
     public class AzureApiClient : IAzureApiClient
     {
         private HttpClient _httpClient;
@@ -31,10 +30,9 @@ namespace AIDesktop.Web
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
                 var response = _httpClient.PostAsync(postUrl, content);
                 response.Wait();
-                var test = response.Result;
-                if (test.IsSuccessStatusCode)
+                if (response.Result.IsSuccessStatusCode)
                 {
-                    var expectedHeader = test.Headers.FirstOrDefault(x => x.Key == "Operation-Location").Value.ToString();
+                    var expectedHeader = response.Result.Headers.FirstOrDefault(x => x.Key == "Operation-Location").Value.ToString();
                     headerValue = expectedHeader;
                 }
             }
@@ -42,12 +40,10 @@ namespace AIDesktop.Web
             return null;
         }
 
-        // step 2
+        // step 2 - retrieve the actual response from the processed Cognitive Service endpoint result from the header
         public void GetCognitiveServiceReadTextResult()
         {
         }
-
-        // possibly setup a http pipeline here?
     }
 
     /*
